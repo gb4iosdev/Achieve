@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemView: View {
     
-    let item: Item
+    let itemDescription: String
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -17,9 +17,15 @@ struct ItemView: View {
                 .foregroundColor(.itemColour)
                 .frame(height: .itemHeight)
             
-            Text(item.itemDescription!)
-                .foregroundColor(.itemTextColour)
-                .padding(.leading, .textInset)
+            VStack {
+                Text(itemDescription)
+                    .foregroundColor(.itemTextColour)
+                    .padding(.leading, .textInset)
+//                Text(item.objectID.description)
+//                    .font(.system(size: 12))
+//                    .foregroundColor(.itemTextColour)
+//                    .padding(.leading, .textInset)
+            }
         }
         .padding(.horizontal, .horizontalPadding)
         .padding(.vertical, .verticalPadding)
@@ -34,6 +40,6 @@ struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
         let item = Item()
         item.itemDescription = "Testing"
-        return ItemView(item: item)
+        return ItemView(itemDescription: item.wrappedDescription)
     }
 }

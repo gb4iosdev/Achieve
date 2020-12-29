@@ -6,7 +6,6 @@
 //
 //
 
-import Foundation
 import CoreData
 
 
@@ -20,13 +19,12 @@ extension Item {
     @NSManaged public var itemDescription: String?
     @NSManaged public var createdDate: Date?
     
-    var wrappedDescription: String {
-        itemDescription ?? ""
-    }
-    
 }
 
 extension Item : Identifiable {
+    
+    var wrappedDescription: String { itemDescription ?? "Unknown description" }
+    var wrappedId: UUID { id ?? UUID() }
     
     static func item(withId id: String, in context: NSManagedObjectContext) -> Item? {
         let fetchReq: NSFetchRequest<Item> = Self.fetchRequest()

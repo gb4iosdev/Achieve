@@ -9,12 +9,11 @@ import SwiftUI
 
 @main
 struct AchieveApp: App {
-    let context = PersistenceController.shared.container.viewContext
+    let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
-            //AchieveMainView(dataManager: modelManager).environment(\.managedObjectContext, persistenceController.container.viewContext)
-            AchieveMainView().environment(\.managedObjectContext, context)
+            AchieveMainView().environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

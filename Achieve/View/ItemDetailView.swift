@@ -15,7 +15,7 @@ struct ItemDetailView: View {
         ZStack {
             BackgroundView()
             VStack {
-                ItemView(item: item)
+                ItemView(itemDescription: item.wrappedDescription)
                 Spacer()
             }
             .padding(.top, .topPadding)

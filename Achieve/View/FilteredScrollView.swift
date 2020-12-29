@@ -18,7 +18,7 @@ struct FilteredScrollView: View {
     var body: some View {
         ScrollView {
             ForEach(items, id: \.self) { item in
-                ItemView(item: item)
+                ItemView(itemDescription: item.wrappedDescription)
                     .onTapGesture {
                         self.newItemDescription = item.wrappedDescription
                     }
